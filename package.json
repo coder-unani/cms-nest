@@ -7,8 +7,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "npm run build:css && nest build",
-    "build:css": "postcss src/styles/tailwind.css -o public/styles.css",
-    "watch:css": "postcss src/styles/tailwind.css -o public/styles.css --watch",
+    "build:css": "postcss src/common/styles/tailwind.css -o public/styles.css",
+    "watch:css": "postcss src/common/styles/tailwind.css -o public/styles.css --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "dev": "concurrently -k \"npm:watch:css\" \"nest start --watch\"",
