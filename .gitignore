@@ -60,3 +60,5 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 # Generated CSS file
 /public/styles.css
 
+# Generated Migration file
+/src/database/migrations
