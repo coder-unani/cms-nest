@@ -1,6 +1,14 @@
 import { registerAs } from '@nestjs/config';
+import * as dotenv from 'dotenv';
 
-export type DbType =
+dotenv.config({
+  path: process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : '.env',
+});
+dotenv.config({
+  path: '.env',
+});
+
+type DbType =
   | 'mysql'
   | 'postgres'
   | 'sqlite'
