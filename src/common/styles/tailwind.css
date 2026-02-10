@@ -1,1 +1,161 @@
 @import "tailwindcss";
+
+@theme {
+  /* font */
+  --font-pretendard: 'Pretendard Variable', system-ui, sans-serif;
+
+  /* color */
+  /* common */
+  --color-common-white: oklch(1 0 0);
+  --color-common-black: oklch(0.1543 0 0);
+
+  /* primary */
+  --color-primary-lighter: var(--color-gray-400);
+  --color-primary-light: var(--color-gray-500);
+  --color-primary-main: var(--color-gray-700);
+  --color-primary-dark: var(--color-gray-800);
+  --color-primary-darker: var(--color-gray-900);
+
+  /* secondary */
+  --color-secondary-lighter: oklch(0.4934 0.2235 278.12 / 15%);
+  --color-secondary-light: oklch(0.4934 0.2235 278.12 / 25%);
+  --color-secondary-main: oklch(0.4934 0.2235 278.12);
+
+  /* info */
+
+  /* success */
+  --color-success-lighter: var(--color-secondary-lighter);
+  --color-success-light: var(--color-secondary-light);
+  --color-success-main: var(--color-secondary-main);
+
+  /* warning */
+  --color-warning-lighter: var(--color-amber-50);
+  --color-warning-light: var(--color-amber-100);
+  --color-warning-main: var(--color-orange-400);
+  --color-warning-dark: var(--color-amber-600);
+  --color-warning-darker: var(--color-amber-700);
+  --color-warning-contrast: var(--color-common-white);
+
+  /* error */
+  --color-error-lighter: var(--color-rose-50);
+  --color-error-light: var(--color-rose-100);
+  --color-error-main: var(--color-rose-500);
+  --color-error-dark: var(--color-rose-600);
+  --color-error-darker: var(--color-rose-700);
+  --color-error-contrast: var(--color-common-white);
+
+  /* background */
+  --color-default-bg: var(--color-common-white);
+  --color-paper-bg: oklch(0.9632 0.0034 247.86);
+  --color-surface-bg: oklch(0.9729 0.0029 264.54);
+
+  /* button */
+
+  /* border */
+  --color-light-border: var(--color-gray-100);
+  --color-main-border: var(--color-gray-200);
+  --color-dark-border: var(--color-gray-300);
+}
+
+/* 기본 스타일이 적용되는 레이어 */
+@layer base {
+  * {
+    @apply m-0 box-border border-0 p-0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    @apply font-pretendard text-primary-dark -tracking-[0.01em];
+  }
+
+  body {
+    @apply bg-paper-bg;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  img.error-image {
+    @apply border-main-border bg-common-white border-1 !object-none;
+  }
+}
+
+/* 재사용 가능한 컴포넌트 클래스 */
+@layer components {
+  .orb-label {
+    @apply text-primary-main flex-none text-[13px] font-bold;
+  }
+  .orb-remark {
+    @apply text-primary-light text-[12px];
+  }
+  .orb-input {
+    @apply bg-surface-bg placeholder:text-primary-lighter focus:ring-secondary-main w-full rounded-lg px-4 py-3 placeholder:text-sm focus:ring-1 focus:outline-none;
+  }
+  .orb-input-search {
+    @apply bg-surface-bg focus:ring-secondary-main text-primary-main w-full rounded-lg py-3 pr-11 pl-4 text-sm transition duration-200 ease-in-out placeholder:text-gray-400 focus:ring-1 focus:outline-none;
+  }
+  .orb-select {
+    @apply border-light-border bg-surface-bg focus:ring-secondary-main w-full rounded-lg border-r-12 p-3 placeholder:text-sm placeholder:text-gray-400 focus:ring-1 focus:outline-none;
+  }
+  .orb-checkbox {
+    @apply accent-secondary-main border-dark-border flex w-full focus:outline-none;
+  }
+
+  .orb-head {
+    @apply text-xl font-extrabold -tracking-[0.02em];
+  }
+
+  .orb-hightlight {
+    @apply bg-surface-bg text-secondary-main;
+  }
+  .orb-hightlight-warning {
+    @apply text-common-white bg-warning-main;
+  }
+  .orb-hightlight-error {
+    @apply text-common-white bg-rose-300;
+  }
+
+  .orb-btn {
+    @apply block rounded-lg px-4 py-3 text-center text-sm font-bold disabled:cursor-not-allowed disabled:opacity-50 lg:w-auto;
+    &:hover {
+      background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+    }
+  }
+  .orb-btn-primary {
+    @apply bg-success-lighter text-success-main min-w-[80px] transition-all;
+  }
+  .orb-btn-primary-alert {
+    @apply text-secondary-main bg-secondary-lighter min-w-[80px] transition-all;
+  }
+  .orb-btn-success {
+    @apply text-common-white bg-success-main min-w-[80px] transition-all;
+  }
+  .orb-btn-delete {
+    @apply text-common-white bg-error-main min-w-[80px] transition-all;
+  }
+  .orb-btn-delete-alert {
+    @apply text-error-main bg-error-light min-w-[80px] transition-all;
+  }
+  .orb-btn-info {
+    @apply border-dark-border text-primary-light bg-common-white min-w-[80px] border leading-[18px];
+  }
+
+  .orb-shadow {
+    box-shadow:
+      0 0 2px rgba(0, 0, 0, 0.05),
+      0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .orb-shadow-light {
+    box-shadow:
+      0 0 2px rgba(0, 0, 0, 0.05),
+      0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  .orb-article {
+    @apply bg-default-bg rounded-xl p-7.5 text-sm;
+    box-shadow:
+      0 0 2px rgba(0, 0, 0, 0.05),
+      0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}

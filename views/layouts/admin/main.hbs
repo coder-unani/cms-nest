@@ -1,13 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{title}}</title>
+    <title>{{title}} | 관리 시스템</title>
+    <link 
+      href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <!-- 헤더 -->
     {{> admin/header}}
-    {{{body}}}
+    <!-- 메인 -->
+    <main class="flex h-[calc(100vh-60px)]">
+      <!-- 사이드바 -->
+      {{> admin/sidebar}}
+      <div class="flex-1 overflow-auto flex flex-col">
+        <!-- 본문 -->
+        <div class="flex-1 flex flex-col w-full max-w-[1200px] mx-auto pt-6 pb-7.5 px-10">
+          {{{body}}}
+        </div>
+        <!-- 푸터 -->
+        {{> admin/footer}}
+      </div>
+    </main>
+    <!-- 로딩 -->
   </body>
 </html>

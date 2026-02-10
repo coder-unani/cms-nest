@@ -1,9 +1,23 @@
-<header class="border-b border-gray-200 bg-white">
-  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-    <a href="/" class="text-lg font-semibold">CMS</a>
-    <nav class="flex items-center gap-4">
-      <a href="/" class="text-sm text-gray-700 hover:text-gray-900">Home</a>
-      <a href="/admin" class="text-sm text-gray-700 hover:text-gray-900">Admin</a>
-    </nav>
+<header class="h-[60px] flex w-full items-center justify-between px-6 py-2 bg-common-black p-4">
+  <!-- 로고 -->
+  <a href="#">
+    <div class="flex items-center justify-center gap-2">
+      <div class="text-common-white w-[20px] aspect-square">
+        로고
+      </div>
+      <span class="text-xl leading-none font-bold text-common-white">관리 시스템</span>
+    </div>
+  </a>
+  <div class="flex items-center gap-2">
+    <a
+      href="#"
+      class="px-2.5 py-2 text-common-white hover:bg-primary-dark rounded-lg">
+      <p class="text-sm font-semibold">관리자</p>
+    </a>
+    <button
+      id="logout"
+      class="flex items-center justify-start p-2 cursor-pointer text-common-white hover:bg-primary-dark rounded-lg">
+      <span class="text-left">{{> admin/icons/logout}}</span>
+    </button>
   </div>
 </header>
